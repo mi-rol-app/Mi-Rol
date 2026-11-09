@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mi Rol · Turnos</title>
+  <meta name="description" content="Consulta tu Rol Mensual de turnos desde el móvil, sin conexión.">
+  <meta name="theme-color" content="#5d1b52">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Mi Rol">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="icons/favicon.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true">
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><path d="M12 13.2a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4Z" fill="currentColor" stroke="none"/><path d="M5 13.2a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4Z" fill="currentColor" stroke="none"/><path d="M19 13.2a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V7Z"/><path d="M14 2v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M8 14h2M14 14h2M8 17.5h2M14 17.5h2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 10-2.3 6.3"/><path d="M20 4v7h-7"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></symbol>
+    <symbol id="i-keypad" viewBox="0 0 24 24"><circle cx="6" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="6" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="18" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="6" cy="18" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="18" r="1.3" fill="currentColor" stroke="none"/><circle cx="18" cy="18" r="1.3" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></symbol>
+  </svg>
+
+  <div class="app" id="app">
+    <!-- ============ IMPORTAR ROL ============ -->
+    <section class="screen screen--import" id="screenImport" data-screen="import">
+      <div class="import-hero">
+        <div class="brandline">
+          <span class="brandmark">
+            <svg viewBox="0 0 24 24" class="icon"><use href="#i-calendar"/></svg>
+          </span>
+          <span class="brandname">Mi Rol</span>
+        </div>
+
+        <h1 class="hero-title">Tu mes,<br><em>de un vistazo.</em></h1>
+      </div>
+
+      <div class="import-panel">
+        <div class="card upload-card" id="uploadCard">
+          <span class="upload-icon"><svg viewBox="0 0 24 24" class="icon"><use href="#i-upload"/></svg></span>
+          <h2>Añade tu Rol Mensual</h2>
+          <p>Selecciona el PDF que te entrega GIRE. Leeremos la tabla de matrículas y claves y la guardaremos en tu móvil.</p>
+          <button class="btn btn--primary btn--wide" id="pickPdf" type="button">Seleccionar PDF</button>
+          <p class="micro">PDF · hasta 20 MB · se procesa en el dispositivo</p>
+        </div>
+
+        <div class="card loaded-card" id="loadedCard" hidden>
+          <div class="loaded-top">
+            <span class="loaded-badge"><svg viewBox="0 0 24 24" class="icon"><use href="#i-check"/></svg> Rol cargado</span>
+            <span class="loaded-month" id="loadedMonth"></span>
+          </div>
+          <h2 id="loadedTitle">Tu rol está listo</h2>
+          <p class="loaded-meta" id="loadedMeta"></p>
+
+          <div class="home-worker" id="homeWorker" hidden>
+            <span class="home-worker-avatar" id="homeWorkerAvatar" aria-hidden="true"></span>
+            <span class="home-worker-data">
+              <strong id="homeWorkerName"></strong>
+              <small id="homeWorkerId"></small>
+            </span>
+            <button class="link-btn home-worker-change" id="changeWorkerHome" type="button">Cambiar matrícula</button>
+          </div>
+
+          <button class="btn btn--primary btn--wide" id="continueBtn" type="button">Entrar en mi rol</button>
+
+          <div class="saved-months">
+            <div class="saved-head">
+              <span>Roles mensuales</span>
+              <span id="savedCount"></span>
+            </div>
+            <select class="rol-select" id="importRolSelect" aria-label="Elegir rol mensual"></select>
+          </div>
+
+          <button class="btn btn--ghost btn--wide" id="addAnotherRol" type="button">Añadir otro rol</button>
+          <div class="home-links">
+            <button class="link-btn" id="manageRolsBtn" type="button">Gestionar mis roles</button>
+            <button class="link-btn notify-toggle" id="notifyBtn" type="button">
+              <span id="notifyLabel">Añadir al calendario</span>
+              <span class="notify-switch" id="notifySwitch" role="switch" aria-checked="false" hidden></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="alert" id="importError" hidden role="alert"></div>
+
+        <ol class="how">
+          <li>
+            <span class="how-num">1</span>
+            <div><strong>Añade el PDF</strong><p>El Rol Mensual con las matrículas y las claves de cada día.</p></div>
+          </li>
+          <li>
+            <span class="how-num">2</span>
+            <div><strong>Escribe tu matrícula</strong><p>El número de la primera columna. Te reconoceremos por tu nombre.</p></div>
+          </li>
+          <li>
+            <span class="how-num">3</span>
+            <div><strong>Consulta tu calendario</strong><p>Cada día con la clave que te toca. Todo queda en tu dispositivo.</p></div>
+          </li>
+        </ol>
+
+        <p class="privacy"><svg viewBox="0 0 24 24" class="icon"><use href="#i-lock"/></svg> Tus datos no salen de este dispositivo.</p>
+      </div>
+      <input type="file" id="fileInput" accept=".pdf,application/pdf" hidden>
+    </section>
+
+    <!-- ============ IDENTIFICACIÓN ============ -->
+    <section class="screen screen--identify" id="screenIdentify" data-screen="identify" hidden>
+      <header class="topbar">
+        <button class="icon-btn" id="identifyBack" type="button" aria-label="Volver">
+          <svg viewBox="0 0 24 24" class="icon"><use href="#i-back"/></svg>
+        </button>
+        <span class="topbar-title">Mi Rol</span>
+        <span class="topbar-spacer"></span>
+      </header>
+
+      <div class="identify">
+        <button class="month-chip month-chip--button" id="identifyMonth" type="button" title="Cambiar de mes"></button>
+        <h1 class="identify-title">¿Quién eres?</h1>
+        <p class="identify-copy">Escribe tu matrícula: el número de <strong id="idLengthLabel">7</strong> dígitos de la primera columna del Rol.</p>
+
+        <div class="id-boxes" id="idBoxes" aria-label="Matrícula"></div>
+        <p class="form-error" id="idError" role="alert"></p>
+
+        <div class="keypad" id="keypad"></div>
+
+        <button class="btn btn--primary btn--wide" id="searchBtn" type="button">Ver mi calendario</button>
+        <button class="link-btn" id="replaceRolBtn" type="button">Importar otro rol</button>
+      </div>
+    </section>
+
+    <!-- ============ CALENDARIO ============ -->
+    <section class="screen screen--calendar" id="screenCalendar" data-screen="calendar" hidden>
+      <header class="topbar">
+        <button class="icon-btn" id="backToIdentify" type="button" aria-label="Volver al inicio">
+          <svg viewBox="0 0 24 24" class="icon"><use href="#i-back"/></svg>
+        </button>
+        <span class="topbar-title">Mi Rol</span>
+        <button class="icon-btn" id="menuBtn" type="button" aria-label="Más opciones">
+          <svg viewBox="0 0 24 24" class="icon"><use href="#i-more"/></svg>
+        </button>
+      </header>
+
+      <div class="calendar-page">
+        <div class="month-nav">
+          <button class="month-arrow" id="prevRol" type="button" aria-label="Mes anterior">
+            <svg viewBox="0 0 24 24" class="icon"><use href="#i-back"/></svg>
+          </button>
+          <button class="month-current" id="openRolPicker" type="button" aria-label="Cambiar de mes">
+            <span id="calendarRolMonth"></span>
+            <svg viewBox="0 0 24 24" class="icon"><use href="#i-chevron-down"/></svg>
+          </button>
+          <button class="month-arrow" id="nextRol" type="button" aria-label="Mes siguiente">
+            <svg viewBox="0 0 24 24" class="icon"><use href="#i-chevron"/></svg>
+          </button>
+          <button class="month-add" id="addRol" type="button" aria-label="Añadir un rol mensual">+</button>
+        </div>
+
+        <div class="worker-head">
+          <div class="worker-avatar" id="workerAvatar">—</div>
+          <div class="worker-text">
+            <h1 id="workerName">—</h1>
+            <p id="workerSub"></p>
+          </div>
+        </div>
+
+        <div class="calendar-card">
+          <div class="calendar-top">
+            <div>
+              <p class="eyebrow">Calendario</p>
+              <h2>Días del mes</h2>
+            </div>
+            <button class="calendar-edit-btn" id="editKeyBtn" type="button">Editar clave</button>
+          </div>
+          <div class="key-edit-banner" id="keyEditBanner" hidden>
+            <span>Toca un día para cambiar su clave.</span>
+            <button class="link-btn" id="cancelKeyEdit" type="button">Cancelar</button>
+          </div>
+          <div class="weekrow" aria-hidden="true">
+            <span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span>
+          </div>
+          <div class="days" id="daysGrid"></div>
+        </div>
+
+        <button class="reset-edits-btn" id="resetEditsBtn" type="button" hidden>
+          Restablecer claves originales
+        </button>
+
+        <div class="calendar-note">
+          <svg viewBox="0 0 24 24" class="icon"><use href="#i-info"/></svg>
+          <p>Toca un día para ver el número y el horario detallado del turno.</p>
+        </div>
+
+        <p class="offline">Datos del Rol · guardados solo en este dispositivo</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Hoja de día -->
+  <div class="overlay" id="dayOverlay" hidden>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="daySheetTitle">
+      <div class="sheet-grab"></div>
+      <div class="sheet-head">
+        <div>
+          <p class="sheet-eyebrow" id="daySheetWeekday"></p>
+          <h2 id="daySheetTitle"></h2>
+        </div>
+        <button class="icon-btn" type="button" data-close="dayOverlay" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" class="icon"><use href="#i-x"/></svg>
+        </button>
+      </div>
+      <p class="day-code-caption" id="dayCodeCaption"></p>
+      <div class="day-meta" id="dayMeta"></div>
+      <div class="shift-detail" id="shiftDetail"></div>
+      <button class="btn btn--primary btn--wide" type="button" data-close="dayOverlay">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Menú -->
+  <div class="overlay" id="menuOverlay" hidden>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+      <div class="sheet-grab"></div>
+      <div class="sheet-head">
+        <h2 id="menuTitle">Opciones</h2>
+        <button class="icon-btn" type="button" data-close="menuOverlay" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" class="icon"><use href="#i-x"/></svg>
+        </button>
+      </div>
+      <div class="menu-list">
+        <button type="button" class="menu-item" id="menuChangeWorker">
+          <span class="menu-item-icon"><svg viewBox="0 0 24 24" class="icon"><use href="#i-user"/></svg></span>
+          <span><strong>Cambiar de trabajador</strong><small>Introducir otra matrícula</small></span>
+          <svg viewBox="0 0 24 24" class="icon menu-chev"><use href="#i-chevron"/></svg>
+        </button>
+        <button type="button" class="menu-item" id="menuChangeRol">
+          <span class="menu-item-icon"><svg viewBox="0 0 24 24" class="icon"><use href="#i-refresh"/></svg></span>
+          <span><strong>Añadir otro rol</strong><small>Guardar otro mes en la app</small></span>
+          <svg viewBox="0 0 24 24" class="icon menu-chev"><use href="#i-chevron"/></svg>
+        </button>
+      </div>
+      <p class="menu-version">Mi Rol · v2.22</p>
+    </div>
+  </div>
+
+  <!-- Selector de meses -->
+  <div class="overlay" id="rolPickerOverlay" hidden>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="rolPickerTitle">
+      <div class="sheet-grab"></div>
+      <div class="sheet-head">
+        <div>
+          <p class="sheet-eyebrow">Roles guardados</p>
+          <h2 id="rolPickerTitle">Elige un mes</h2>
+        </div>
+        <button class="icon-btn" type="button" data-close="rolPickerOverlay" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" class="icon"><use href="#i-x"/></svg>
+        </button>
+      </div>
+      <div class="rol-list" id="rolPickerList"></div>
+      <button class="btn btn--primary btn--wide" id="pickerAddRol" type="button">Añadir otro rol</button>
+    </div>
+  </div>
+
+  <!-- Gestión de roles -->
+  <div class="overlay" id="manageRolesOverlay" hidden>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="manageRolesTitle">
+      <div class="sheet-grab"></div>
+      <div class="sheet-head">
+        <div>
+          <p class="sheet-eyebrow">Tus roles</p>
+          <h2 id="manageRolesTitle">Gestionar mis roles</h2>
+        </div>
+        <button class="icon-btn" type="button" data-close="manageRolesOverlay" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" class="icon"><use href="#i-x"/></svg>
+        </button>
+      </div>
+      <div class="manage-roles" id="manageRolesList"></div>
+      <button class="btn btn--primary btn--wide" id="manageAddRol" type="button">Añadir otro rol</button>
+    </div>
+  </div>
+
+  <!-- Editar clave de un día -->
+  <div class="overlay" id="editKeyOverlay" hidden>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="editKeyTitle">
+      <div class="sheet-grab"></div>
+      <div class="sheet-head">
+        <div>
+          <p class="sheet-eyebrow">Calendario</p>
+          <h2 id="editKeyTitle">Cambiar clave</h2>
+        </div>
+        <button class="icon-btn" type="button" data-close="editKeyOverlay" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" class="icon"><use href="#i-x"/></svg>
+        </button>
+      </div>
+      <form id="editKeyForm" class="key-edit-form">
+        <label class="key-edit-label" for="newKeyInput">Nueva clave</label>
+        <input class="key-edit-input" id="newKeyInput" type="text" maxlength="8"
+          autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Ej. 420">
+        <p class="key-edit-current" id="editKeyCurrent"></p>
+        <p class="form-error" id="editKeyError" role="alert"></p>
+        <div class="sheet-actions">
+          <button class="btn btn--ghost" id="cancelEditKey" type="button">Cancelar</button>
+          <button class="btn btn--primary" id="saveEditKey" type="submit">Guardar clave</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notificaciones -->
+  <div class="overlay" id="notifyOverlay" hidden>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="notifyTitle">
+      <div class="sheet-grab"></div>
+      <div class="sheet-head">
+        <div>
+          <p class="sheet-eyebrow">Recordatorios</p>
+          <h2 id="notifyTitle">Añadir al calendario</h2>
+        </div>
+        <button class="icon-btn" type="button" data-close="notifyOverlay" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" class="icon"><use href="#i-x"/></svg>
+        </button>
+      </div>
+      <p class="notify-copy">En iPhone, una web estática no puede programar avisos en segundo plano. Descarga tus turnos en el Calendario: el aviso lo dará el propio teléfono.</p>
+      <label class="key-edit-label" for="notifyTime">Hora del aviso</label>
+      <input class="notify-time" id="notifyTime" type="time" value="20:00">
+      <p class="notify-hint">Se creará un evento por turno y una alarma el día anterior a la hora elegida.</p>
+      <button class="btn btn--primary btn--wide" id="notifySave" type="button">Descargar calendario (.ics)</button>
+      <button class="btn btn--ghost btn--wide" id="notifyDisable" type="button" hidden>Desactivar notificaciones</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <div class="loader" id="loader" hidden>
+    <div class="loader-card">
+      <span class="spinner" aria-hidden="true"></span>
+      <p id="loaderText">Leyendo el rol…</p>
+      <small>Se procesa en tu dispositivo</small>
+    </div>
+  </div>
+
+  <script src="js/vendor/tiny-inflate.js"></script>
+  <script src="js/pdf-rol.js"></script>
+  <script src="js/rol-utils.js"></script>
+  <script src="js/shift-images.js"></script>
+  <script src="js/shift-days.js"></script>
+  <script src="js/shift-times.js"></script>
+  <script>window.MIROL_WEB = true;</script>
+  <script src="js/app.js"></script>
+</body>
+</html>
