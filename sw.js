@@ -1,5 +1,5 @@
 ﻿/* Service worker de Mi Rol Â· cachea la app para funcionar sin conexiÃ³n. */
-const CACHE = 'mirol-web-single-v8';
+const CACHE = 'mirol-web-single-v5';
 const ASSETS = [
   './',
   './index.html',
@@ -7,9 +7,9 @@ const ASSETS = [
   './js/vendor/tiny-inflate.js',
   './js/pdf-rol.js',
   './js/rol-utils.js',
-  './js/shift-images.js?v=8',
+  './js/shift-images.js',
   './js/shift-days.js',
-  './js/shift-times.js?v=8',
+  './js/shift-times.js',
   './js/app.js',
   './manifest.webmanifest',
   './icons/icon-192.png',
