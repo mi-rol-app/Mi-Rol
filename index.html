@@ -1,10 +1,10 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Mi Rol Â· Turnos</title>
-  <meta name="description" content="Consulta tu Rol Mensual de turnos desde el mÃ³vil, sin conexiÃ³n.">
+  <title>Mi Rol · Turnos</title>
+  <meta name="description" content="Consulta tu Rol Mensual de turnos desde el móvil, sin conexión.">
   <meta name="theme-color" content="#5d1b52">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -50,10 +50,10 @@
       <div class="import-panel">
         <div class="card upload-card" id="uploadCard">
           <span class="upload-icon"><svg viewBox="0 0 24 24" class="icon"><use href="#i-upload"/></svg></span>
-          <h2>AÃ±ade tu Rol Mensual</h2>
-          <p>Selecciona el PDF que te entrega GIRE. Leeremos la tabla de matrÃ­culas y claves y la guardaremos en tu mÃ³vil.</p>
+          <h2>Añade tu Rol Mensual</h2>
+          <p>Selecciona el PDF que te entrega GIRE. Leeremos la tabla de matrículas y claves y la guardaremos en tu móvil.</p>
           <button class="btn btn--primary btn--wide" id="pickPdf" type="button">Seleccionar PDF</button>
-          <p class="micro">PDF Â· hasta 20 MB Â· se procesa en el dispositivo</p>
+          <p class="micro">PDF · hasta 20 MB · se procesa en el dispositivo</p>
         </div>
 
         <div class="card loaded-card" id="loadedCard" hidden>
@@ -61,7 +61,7 @@
             <span class="loaded-badge"><svg viewBox="0 0 24 24" class="icon"><use href="#i-check"/></svg> Rol cargado</span>
             <span class="loaded-month" id="loadedMonth"></span>
           </div>
-          <h2 id="loadedTitle">Tu rol estÃ¡ listo</h2>
+          <h2 id="loadedTitle">Tu rol está listo</h2>
           <p class="loaded-meta" id="loadedMeta"></p>
 
           <div class="home-worker" id="homeWorker" hidden>
@@ -70,7 +70,7 @@
               <strong id="homeWorkerName"></strong>
               <small id="homeWorkerId"></small>
             </span>
-            <button class="link-btn home-worker-change" id="changeWorkerHome" type="button">Cambiar matrÃ­cula</button>
+            <button class="link-btn home-worker-change" id="changeWorkerHome" type="button">Cambiar matrícula</button>
           </div>
 
           <button class="btn btn--primary btn--wide" id="continueBtn" type="button">Entrar en mi rol</button>
@@ -83,11 +83,11 @@
             <select class="rol-select" id="importRolSelect" aria-label="Elegir rol mensual"></select>
           </div>
 
-          <button class="btn btn--ghost btn--wide" id="addAnotherRol" type="button">AÃ±adir otro rol</button>
+          <button class="btn btn--ghost btn--wide" id="addAnotherRol" type="button">Añadir otro rol</button>
           <div class="home-links">
             <button class="link-btn" id="manageRolsBtn" type="button">Gestionar mis roles</button>
             <button class="link-btn notify-toggle" id="notifyBtn" type="button">
-              <span id="notifyLabel">AÃ±adir al calendario</span>
+              <span id="notifyLabel">Añadir al calendario</span>
               <span class="notify-switch" id="notifySwitch" role="switch" aria-checked="false" hidden></span>
             </button>
           </div>
@@ -98,15 +98,15 @@
         <ol class="how">
           <li>
             <span class="how-num">1</span>
-            <div><strong>AÃ±ade el PDF</strong><p>El Rol Mensual con las matrÃ­culas y las claves de cada dÃ­a.</p></div>
+            <div><strong>Añade el PDF</strong><p>El Rol Mensual con las matrículas y las claves de cada día.</p></div>
           </li>
           <li>
             <span class="how-num">2</span>
-            <div><strong>Escribe tu matrÃ­cula</strong><p>El nÃºmero de la primera columna. Te reconoceremos por tu nombre.</p></div>
+            <div><strong>Escribe tu matrícula</strong><p>El número de la primera columna. Te reconoceremos por tu nombre.</p></div>
           </li>
           <li>
             <span class="how-num">3</span>
-            <div><strong>Consulta tu calendario</strong><p>Cada dÃ­a con la clave que te toca. Todo queda en tu dispositivo.</p></div>
+            <div><strong>Consulta tu calendario</strong><p>Cada día con la clave que te toca. Todo queda en tu dispositivo.</p></div>
           </li>
         </ol>
 
@@ -115,7 +115,7 @@
       <input type="file" id="fileInput" accept=".pdf,application/pdf" hidden>
     </section>
 
-    <!-- ============ IDENTIFICACIÃ“N ============ -->
+    <!-- ============ IDENTIFICACIÓN ============ -->
     <section class="screen screen--identify" id="screenIdentify" data-screen="identify" hidden>
       <header class="topbar">
         <button class="icon-btn" id="identifyBack" type="button" aria-label="Volver">
@@ -127,10 +127,10 @@
 
       <div class="identify">
         <button class="month-chip month-chip--button" id="identifyMonth" type="button" title="Cambiar de mes"></button>
-        <h1 class="identify-title">Â¿QuiÃ©n eres?</h1>
-        <p class="identify-copy">Escribe tu matrÃ­cula: el nÃºmero de <strong id="idLengthLabel">7</strong> dÃ­gitos de la primera columna del Rol.</p>
+        <h1 class="identify-title">¿Quién eres?</h1>
+        <p class="identify-copy">Escribe tu matrícula: el número de <strong id="idLengthLabel">7</strong> dígitos de la primera columna del Rol.</p>
 
-        <div class="id-boxes" id="idBoxes" aria-label="MatrÃ­cula"></div>
+        <div class="id-boxes" id="idBoxes" aria-label="Matrícula"></div>
         <p class="form-error" id="idError" role="alert"></p>
 
         <div class="keypad" id="keypad"></div>
@@ -147,7 +147,7 @@
           <svg viewBox="0 0 24 24" class="icon"><use href="#i-back"/></svg>
         </button>
         <span class="topbar-title">Mi Rol</span>
-        <button class="icon-btn" id="menuBtn" type="button" aria-label="MÃ¡s opciones">
+        <button class="icon-btn" id="menuBtn" type="button" aria-label="Más opciones">
           <svg viewBox="0 0 24 24" class="icon"><use href="#i-more"/></svg>
         </button>
       </header>
@@ -164,13 +164,13 @@
           <button class="month-arrow" id="nextRol" type="button" aria-label="Mes siguiente">
             <svg viewBox="0 0 24 24" class="icon"><use href="#i-chevron"/></svg>
           </button>
-          <button class="month-add" id="addRol" type="button" aria-label="AÃ±adir un rol mensual">+</button>
+          <button class="month-add" id="addRol" type="button" aria-label="Añadir un rol mensual">+</button>
         </div>
 
         <div class="worker-head">
-          <div class="worker-avatar" id="workerAvatar">â€”</div>
+          <div class="worker-avatar" id="workerAvatar">—</div>
           <div class="worker-text">
-            <h1 id="workerName">â€”</h1>
+            <h1 id="workerName">—</h1>
             <p id="workerSub"></p>
           </div>
         </div>
@@ -179,12 +179,12 @@
           <div class="calendar-top">
             <div>
               <p class="eyebrow">Calendario</p>
-              <h2>DÃ­as del mes</h2>
+              <h2>Días del mes</h2>
             </div>
             <button class="calendar-edit-btn" id="editKeyBtn" type="button">Editar clave</button>
           </div>
           <div class="key-edit-banner" id="keyEditBanner" hidden>
-            <span>Toca un dÃ­a para cambiar su clave.</span>
+            <span>Toca un día para cambiar su clave.</span>
             <button class="link-btn" id="cancelKeyEdit" type="button">Cancelar</button>
           </div>
           <div class="weekrow" aria-hidden="true">
@@ -199,15 +199,15 @@
 
         <div class="calendar-note">
           <svg viewBox="0 0 24 24" class="icon"><use href="#i-info"/></svg>
-          <p>Toca un dÃ­a para ver el nÃºmero y el horario detallado del turno.</p>
+          <p>Toca un día para ver el número y el horario detallado del turno.</p>
         </div>
 
-        <p class="offline">Datos del Rol Â· guardados solo en este dispositivo</p>
+        <p class="offline">Datos del Rol · guardados solo en este dispositivo</p>
       </div>
     </section>
   </div>
 
-  <!-- Hoja de dÃ­a -->
+  <!-- Hoja de día -->
   <div class="overlay" id="dayOverlay" hidden>
     <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="daySheetTitle">
       <div class="sheet-grab"></div>
@@ -227,7 +227,7 @@
     </div>
   </div>
 
-  <!-- MenÃº -->
+  <!-- Menú -->
   <div class="overlay" id="menuOverlay" hidden>
     <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
       <div class="sheet-grab"></div>
@@ -240,16 +240,16 @@
       <div class="menu-list">
         <button type="button" class="menu-item" id="menuChangeWorker">
           <span class="menu-item-icon"><svg viewBox="0 0 24 24" class="icon"><use href="#i-user"/></svg></span>
-          <span><strong>Cambiar de trabajador</strong><small>Introducir otra matrÃ­cula</small></span>
+          <span><strong>Cambiar de trabajador</strong><small>Introducir otra matrícula</small></span>
           <svg viewBox="0 0 24 24" class="icon menu-chev"><use href="#i-chevron"/></svg>
         </button>
         <button type="button" class="menu-item" id="menuChangeRol">
           <span class="menu-item-icon"><svg viewBox="0 0 24 24" class="icon"><use href="#i-refresh"/></svg></span>
-          <span><strong>AÃ±adir otro rol</strong><small>Guardar otro mes en la app</small></span>
+          <span><strong>Añadir otro rol</strong><small>Guardar otro mes en la app</small></span>
           <svg viewBox="0 0 24 24" class="icon menu-chev"><use href="#i-chevron"/></svg>
         </button>
       </div>
-      <p class="menu-version">Mi Rol Â· v2.22</p>
+      <p class="menu-version">Mi Rol · v2.22</p>
     </div>
   </div>
 
@@ -267,11 +267,11 @@
         </button>
       </div>
       <div class="rol-list" id="rolPickerList"></div>
-      <button class="btn btn--primary btn--wide" id="pickerAddRol" type="button">AÃ±adir otro rol</button>
+      <button class="btn btn--primary btn--wide" id="pickerAddRol" type="button">Añadir otro rol</button>
     </div>
   </div>
 
-  <!-- GestiÃ³n de roles -->
+  <!-- Gestión de roles -->
   <div class="overlay" id="manageRolesOverlay" hidden>
     <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="manageRolesTitle">
       <div class="sheet-grab"></div>
@@ -285,11 +285,11 @@
         </button>
       </div>
       <div class="manage-roles" id="manageRolesList"></div>
-      <button class="btn btn--primary btn--wide" id="manageAddRol" type="button">AÃ±adir otro rol</button>
+      <button class="btn btn--primary btn--wide" id="manageAddRol" type="button">Añadir otro rol</button>
     </div>
   </div>
 
-  <!-- Editar clave de un dÃ­a -->
+  <!-- Editar clave de un día -->
   <div class="overlay" id="editKeyOverlay" hidden>
     <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="editKeyTitle">
       <div class="sheet-grab"></div>
@@ -323,16 +323,16 @@
       <div class="sheet-head">
         <div>
           <p class="sheet-eyebrow">Recordatorios</p>
-          <h2 id="notifyTitle">AÃ±adir al calendario</h2>
+          <h2 id="notifyTitle">Añadir al calendario</h2>
         </div>
         <button class="icon-btn" type="button" data-close="notifyOverlay" aria-label="Cerrar">
           <svg viewBox="0 0 24 24" class="icon"><use href="#i-x"/></svg>
         </button>
       </div>
-      <p class="notify-copy">En iPhone, una web estÃ¡tica no puede programar avisos en segundo plano. Descarga tus turnos en el Calendario: el aviso lo darÃ¡ el propio telÃ©fono.</p>
+      <p class="notify-copy">En iPhone, una web estática no puede programar avisos en segundo plano. Descarga tus turnos en el Calendario: el aviso lo dará el propio teléfono.</p>
       <label class="key-edit-label" for="notifyTime">Hora del aviso</label>
       <input class="notify-time" id="notifyTime" type="time" value="20:00">
-      <p class="notify-hint">Se crearÃ¡ un evento por turno y una alarma el dÃ­a anterior a la hora elegida.</p>
+      <p class="notify-hint">Se creará un evento por turno y una alarma el día anterior a la hora elegida.</p>
       <button class="btn btn--primary btn--wide" id="notifySave" type="button">Descargar calendario (.ics)</button>
       <button class="btn btn--ghost btn--wide" id="notifyDisable" type="button" hidden>Desactivar notificaciones</button>
     </div>
@@ -343,7 +343,7 @@
   <div class="loader" id="loader" hidden>
     <div class="loader-card">
       <span class="spinner" aria-hidden="true"></span>
-      <p id="loaderText">Leyendo el rolâ€¦</p>
+      <p id="loaderText">Leyendo el rol…</p>
       <small>Se procesa en tu dispositivo</small>
     </div>
   </div>
@@ -351,9 +351,9 @@
   <script src="js/vendor/tiny-inflate.js"></script>
   <script src="js/pdf-rol.js"></script>
   <script src="js/rol-utils.js"></script>
-  <script src="js/shift-images.js?v=7"></script>
+  <script src="js/shift-images.js?v=8"></script>
   <script src="js/shift-days.js"></script>
-  <script src="js/shift-times.js?v=7"></script>
+  <script src="js/shift-times.js?v=8"></script>
   <script>window.MIROL_WEB = true;</script>
   <script src="js/app.js"></script>
 </body>
